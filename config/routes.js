@@ -5,7 +5,4 @@ module.exports.routes = {
   'GET /api/data/:direccion_estacion': 'DataController.findStation',  
   'GET /api/data/:direccion_estacion/:tipo_sensor': 'DataController.findStationType',  
   'GET /api/data/:direccion_estacion/:tipo_sensor/:limite_definido': 'DataController.findStationTypeLimit',    
-  '/': {
-    view: 'homepage'
-  }
 };
