@@ -5,7 +5,7 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
- const limiteDefecto=1
+ const limiteDefecto=100
 module.exports = {
   /**
    * `DataController.create()`

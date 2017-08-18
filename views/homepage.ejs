@@ -1,0 +1,176 @@
+<div ng-controller="base" style="background-color: #f9f9f9;" ng-app="homepage">
+  <nav style="background-color: #fff;" class="container-fluid py-3">
+    <nav style="background-color: #fff;" class="container">
+      <a href="#" class="navbar-brand mx-4">
+    <i class="fa fa-random"></i>
+    <span class="sr-only">Loading...</span>
+    SmartWeather
+  </a>
+    </nav>
+  </nav>
+  <div ng-app="homepage" ng-controller="base" class="container-fluid p-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3" style="font-size: 16px;color: #7a8b9a;line-height: 27px;text-align: left !important;">
+          <h1>API</h1>
+          <ul id="api-menu">
+            <li><a href="#generalinformation">Información General</a></li>
+          </ul>
+          <h3 class="other-title">Solicitudes</h3>
+          <ul id="api-menu">
+            <li><a href="#findAll">Todos los datos</a></li>
+            <li><a href="#findStation">Definir Estación</a></li>
+            <li><a href="#findStationType">Definir tipo de sensor</a></li>
+            <li><a href="#findStationTypeLimit">Definir limite de datos</a></li>
+            <li><a href="#create">Guardar Información</a></li>
+          </ul>         
+        </div>
+        <div class="col-md-9 api-holder"  style="font-size: 16px;color: #7a8b9a;line-height: 27px;text-align: left !important;">
+          <div id="generalinformation" class="info-box">
+            <h3 class="other-title">Información General</h3>
+            <div class="content-text">
+              <p>La URL base de nuestra API es <b>http://smartweather.tk/api</b></p>
+              <p>Todas las solicitudes a la API serán HTTP / 1.1 GET</p>
+              <p>La respuesta es json, la estructura es la siguiente: </p>
+              <pre><code>[
+  {
+    "valor": "34.5",
+    "tipo_sensor": "Temperatura",
+    "direccion_estacion": "Guatemala",
+    "createdAt": "2017-08-17T05:41:34.027Z",
+    "updatedAt": "2017-08-17T05:41:34.027Z",
+    "id": "59952c8ef9f4c84025525f58"
+  }
+]</code></pre>
+              <h4>Estados</h4>
+              <p>200: Todo está bien. Petición completada</p>
+              <p>400: Mala solicitud (e.g. faltan parametros)</p>
+              <p>404: Información no encontrada</p>
+              <p>50x: Error del servidor</p>
+            </div>
+          </div>
+          <div id="findAll" class="info-box">
+            <h3 class="other-title">Todos los datos</h3>
+            <div class="content-text">
+              <p>Obtiene los últimos 100 datos almacenados en el sistema.</p>
+              <h4>Solicitud</h4>
+              <pre><code>http://smartweather.tk/api/data</code></pre>
+              <p>Ejemplo</p>
+              <pre><code>http://smartweather.tk/api/data</code></pre>
+              <h4>Respuesta</h4>
+              <pre><code>200 (OK)
+Content-Type: application/json</code></pre>
+              <pre><code>[
+  {
+    "valor": "50.5",
+    "tipo_sensor": "Temperatura",
+    "direccion_estacion": "Guatemala",
+    "createdAt": "2017-08-17T06:47:48.701Z",
+    "updatedAt": "2017-08-17T06:47:48.701Z",
+    "id": "59953c14dacb66c705cdf2a3"
+  }
+]
+</code></pre>
+            </div>
+          </div>
+          <div id="findStation" class="info-box">                        
+            <h3 class="other-title">Definir Estación</h3>
+            <div class="content-text">
+              <p>Obtiene los últimos 100 datos almacenados en el sistema desde un lugar determinado.</p>
+              <h4>Solicitud</h4>
+              <pre><code>http://smartweather.tk/api/data/direccion_estacion</code></pre>
+              <p>Ejemplo</p>
+              <pre><code>http://smartweather.tk/api/data/Guatemala</code></pre>
+              <h4>Respuesta</h4>
+              <pre><code>200 (OK)
+Content-Type: application/json</code></pre>
+              <pre><code>[
+  {
+    "valor": "50.5",
+    "tipo_sensor": "Temperatura",
+    "direccion_estacion": "Guatemala",
+    "createdAt": "2017-08-17T06:47:48.701Z",
+    "updatedAt": "2017-08-17T06:47:48.701Z",
+    "id": "59953c14dacb66c705cdf2a3"
+  }
+]
+</code></pre>
+            </div>
+          </div>
+          <div id="findStationType" class="info-box">            
+            <h3 class="other-title">Definir tipo de sensor</h3>
+            <div class="content-text">
+              <p>Obtiene los últimos 100 datos almacenados en el sistema desde un lugar determinado y un único tipo de sensor.</p>
+              <h4>Solicitud</h4>
+              <pre><code>http://smartweather.tk/api/data/direccion_estacion/tipo_sensor</code></pre>
+              <p>Ejemplo</p>
+              <pre><code>http://smartweather.tk/api/data/Guatemala/Temperatura</code></pre>
+              <h4>Respuesta</h4>
+              <pre><code>200 (OK)
+Content-Type: application/json</code></pre>
+              <pre><code>[
+  {
+    "valor": "50.5",
+    "tipo_sensor": "Temperatura",
+    "direccion_estacion": "Guatemala",
+    "createdAt": "2017-08-17T06:47:48.701Z",
+    "updatedAt": "2017-08-17T06:47:48.701Z",
+    "id": "59953c14dacb66c705cdf2a3"
+  }
+]
+</code></pre>
+            </div>
+          </div>
+          <div id="findStationTypeLimit" class="info-box">
+            <h3 class="other-title">Definir limite de datos</h3>
+            <div class="content-text">
+              <p>Obtiene datos almacenados en el sistema desde un lugar determinado y un único tipo de sensor indicando la cantidad
+                de elementos a obtener.</p>
+              <h4>Solicitud</h4>
+              <pre><code>http://smartweather.tk/api/data/direccion_estacion/tipo_sensor/limite_definido</code></pre>
+              <p>Ejemplo</p>
+              <pre><code>http://smartweather.tk/api/data/Guatemala/Temperatura/1</code></pre>
+              <h4>Respuesta</h4>
+              <pre><code>200 (OK)
+Content-Type: application/json</code></pre>
+              <pre><code>[
+  {
+    "valor": "50.5",
+    "tipo_sensor": "Temperatura",
+    "direccion_estacion": "Guatemala",
+    "createdAt": "2017-08-17T06:47:48.701Z",
+    "updatedAt": "2017-08-17T06:47:48.701Z",
+    "id": "59953c14dacb66c705cdf2a3"
+  }
+]
+</code></pre>
+            </div>
+<div id="create" class="info-box">
+            <h3 class="other-title">Guardar información</h3>
+            <div class="content-text">
+              <p>Almacena la información enviada de un sensor.</p>
+              <h4>Solicitud</h4>
+              <pre><code>http://localhost:1337/data?valor=:numero:&tipo_sensor=:cadena:&direccion_estacion=:cadena:</code></pre>
+              <p>Ejemplo</p>
+              <pre><code>http://localhost:1337/data?valor=40.5&tipo_sensor=Humedad&direccion_estacion=Guatemala</code></pre>
+              <h4>Respuesta</h4>
+              <pre><code>200 (OK)
+Content-Type: application/json</code></pre>
+              <pre><code>[
+  {
+    "valor": "40.5",
+    "tipo_sensor": "humedad",
+    "direccion_estacion": "Guatemala",
+    "createdAt": "2017-08-17T06:47:48.701Z",
+    "updatedAt": "2017-08-17T06:47:48.701Z",
+    "id": "59953c14dacb66c705cdf2a3"
+  }
+]
+</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
