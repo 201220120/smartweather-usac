@@ -23,6 +23,7 @@
             <li><a href="#findStationType">Definir tipo de sensor</a></li>
             <li><a href="#findStationTypeLimit">Definir limite de datos</a></li>
             <li><a href="#create">Guardar Información</a></li>
+            <li><a href="#createAll">Guardar Información Grupal</a></li>
           </ul>         
         </div>
         <div class="col-md-9 api-holder"  style="font-size: 16px;color: #7a8b9a;line-height: 27px;text-align: left !important;">
@@ -153,6 +154,29 @@ Content-Type: application/json</code></pre>
               <pre><code>http://smartweather.tk/api/create?valor=:numero:&tipo_sensor=:cadena:&direccion_estacion=:cadena:</code></pre>
               <p>Ejemplo</p>
               <pre><code>http://smartweather.tk/api/create?valor=40.5&tipo_sensor=Humedad&direccion_estacion=Guatemala</code></pre>
+              <h4>Respuesta</h4>
+              <pre><code>200 (OK)
+Content-Type: application/json</code></pre>
+              <pre><code>[
+  {
+    "valor": "40.5",
+    "tipo_sensor": "humedad",
+    "direccion_estacion": "Guatemala",
+    "createdAt": "2017-08-17T06:47:48.701Z",
+    "updatedAt": "2017-08-17T06:47:48.701Z",
+    "id": "59953c14dacb66c705cdf2a3"
+  }
+]
+</code></pre>
+            </div>
+<div id="createAll" class="info-box">
+            <h3 class="other-title">Guardar información desde varios sensores a la vez</h3>
+            <div class="content-text">
+              <p>Almacena la información enviada de un sensor. Se debe separar los valores y los tipo de sensor por medio de comas (,)</p>
+              <h4>Solicitud</h4>
+              <pre><code>http://smartweather.tk/api/createAll?valor=:valorUno:,:valorDos:,:valortres:&tipo_sensor=:sensorUno:,:sensorDos:,:sensorTres:&direccion_estacion=:cadena:</code></pre>
+              <p>Ejemplo</p>
+              <pre><code>http://smartweather.tk/api/createAll?valor=60,70,80,90&tipo_sensor=Humedad,Presion,Temperatura,Luminosidad&direccion_estacion=Guatemala</code></pre>
               <h4>Respuesta</h4>
               <pre><code>200 (OK)
 Content-Type: application/json</code></pre>
