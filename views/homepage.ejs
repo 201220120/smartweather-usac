@@ -30,7 +30,7 @@
             <h3 class="other-title">Información General</h3>
             <div class="content-text">
               <p>La URL base de nuestra API es <b>http://smartweather.tk/api</b></p>
-              <p>Todas las solicitudes a la API serán HTTP / 1.1 GET y POST</p>
+              <p>Todas las solicitudes a la API serán HTTP / 1.1 GET</p>
               <p>La respuesta es json, la estructura es la siguiente: </p>
               <pre><code>[
   {
@@ -146,13 +146,13 @@ Content-Type: application/json</code></pre>
 </code></pre>
             </div>
 <div id="create" class="info-box">
-            <h3 class="other-title">Guardar información (POST)</h3>
+            <h3 class="other-title">Guardar información</h3>
             <div class="content-text">
               <p>Almacena la información enviada de un sensor.</p>
               <h4>Solicitud</h4>
-              <pre><code>http://localhost:1337/api/data?valor=:numero:&tipo_sensor=:cadena:&direccion_estacion=:cadena:</code></pre>
+              <pre><code>http://smartweather.tk/api/create?valor=:numero:&tipo_sensor=:cadena:&direccion_estacion=:cadena:</code></pre>
               <p>Ejemplo</p>
-              <pre><code>http://localhost:1337/api/data?valor=40.5&tipo_sensor=Humedad&direccion_estacion=Guatemala</code></pre>
+              <pre><code>http://smartweather.tk/api/create?valor=40.5&tipo_sensor=Humedad&direccion_estacion=Guatemala</code></pre>
               <h4>Respuesta</h4>
               <pre><code>200 (OK)
 Content-Type: application/json</code></pre>

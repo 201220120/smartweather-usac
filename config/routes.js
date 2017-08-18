@@ -1,6 +1,7 @@
 module.exports.routes = {
   //user
   'POST /data': 'DataController.create',  
+  'GET /create': 'DataController.create',  
   'GET /data': 'DataController.findAll',  
   'GET /data/:direccion_estacion': 'DataController.findStation',  
   'GET /data/:direccion_estacion/:tipo_sensor': 'DataController.findStationType',  
