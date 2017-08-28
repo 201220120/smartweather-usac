@@ -1,0 +1,7 @@
+@relation weather
+@attribute temperature real
+@attribute humidity real
+@attribute pressure real
+@attribute luminosity real
+@data
+undefined

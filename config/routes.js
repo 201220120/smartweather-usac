@@ -7,6 +7,8 @@ module.exports.routes = {
   'GET /data/:direccion_estacion': 'DataController.findStation',  
   'GET /data/:direccion_estacion/:tipo_sensor': 'DataController.findStationType',  
   'GET /data/:direccion_estacion/:tipo_sensor/:limite_definido': 'DataController.findStationTypeLimit',    
+  //predecir clima
+  'GET /analytics/:direccion_estacion/climate': 'AnalitycsController.climate', 
   '/': {
     view: 'homepage'
   }

@@ -5,7 +5,7 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
- const limiteDefecto=100
+const limiteDefecto=100
 module.exports = {
   /**
    * `DataController.create()`
@@ -117,7 +117,9 @@ module.exports = {
     if (!direccion_estacion) return res.badRequest({ err: 'El campo direccion_estacion es obligatorio' });
     if (!tipo_sensor) return res.badRequest({ err: 'El campo tipo_sensor es obligatorio' });
     if (!limite_definido) return res.badRequest({ err: 'El campo limite_definido es obligatorio' });    
-    Data.find({ direccion_estacion: direccion_estacion },{tipo_sensor:tipo_sensor}).sort({id:-1}).limit(limite_definido)
+    Data.find({ direccion_estacion: direccion_estacion ,tipo_sensor:tipo_sensor})
+    .sort({id:-1})
+    .limit(limite_definido)
       .then(_data => {
         if (!_data) return res.notFound({ err: 'No se encontró información' });
         return res.ok(_data);

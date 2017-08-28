@@ -1,0 +1,14 @@
+@relation weather
+
+@attribute temperature real
+@attribute humidity real
+@attribute pressure real
+
+@data
+85,85,60
+80,90,50
+83,86,50
+70,96,50
+68,80,50
+65,70,80
+64,65,40
