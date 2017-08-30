@@ -12,9 +12,9 @@ module.exports = {
   climate: function (req, res) {
     let direccion_estacion = req.params.direccion_estacion;
     if (!direccion_estacion) return res.badRequest({ err: 'El campo estacion es obligatorio' });
-    sails.log('pepi');
+    sails.log('pe');
     var exec = require('child_process').exec;
-    var child = exec('java -jar ' + 'analitycs/Predecir-Clima.jar ' + direccion_estacion,
+    var child = exec('java -jar ' + 'analitycs/Predecir-Clima.jar ' + direccion_estacion +' '+ __dirname,
       function (error, stdout, stderr) {
         return res.ok(stdout);
         if (error !== null) {
