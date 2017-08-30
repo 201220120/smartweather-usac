@@ -14,7 +14,7 @@ module.exports = {
     if (!direccion_estacion) return res.badRequest({ err: 'El campo estacion es obligatorio' });
     sails.log('pe');
     var exec = require('child_process').exec;
-    var child = exec('sudo java -jar ' + 'analitycs/Predecir-Clima.jar ' + direccion_estacion +' '+ __dirname+'\\',
+    var child = exec('sudo java -jar ' + 'analitycs/Predecir-Clima.jar ' + direccion_estacion +' '+ __dirname+'/',
       function (error, stdout, stderr) {
         return res.ok(stdout);
         if (error !== null) {
